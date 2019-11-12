@@ -1,7 +1,13 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 from django.contrib.auth.models import User
 # Create your models here.
+
+
+class ActivatedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status='active')
 
 
 class Event(models.Model):
@@ -26,3 +32,8 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('eventgen:event_detail', args=[self.created.year, self.created.month, self.created.day, self.slug_field])
+
+    objects = models.Manager()
+    actived = ActivatedManager()

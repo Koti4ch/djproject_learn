@@ -1,0 +1,16 @@
+{% extends 'eventgen/_base_tmpl.html' %}
+
+{% block title %}ourEvents
+{% endblock %}
+
+{% block content %}
+    {% for event in activeevents %}
+        <h2>
+            <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+        </h2>
+        <p class="date">Created: {{ event.activated|date:'j E Y, H:i' }} by {{ event.create_by }}</p>
+
+        {{ event.eventtext|truncatewords:15|linebreaks }}
+    {% endfor %}
+    {% include 'eventgen/pagination.html' with page=activeevents %}
+{% endblock %}
