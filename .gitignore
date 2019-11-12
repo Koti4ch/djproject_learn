@@ -1,0 +1,8 @@
+/djproject/
+/djrestvenv/
+/env_radiodjproj/
+/__pycache__/
+__pycache__
+/.idea/
+.idea
+db.sqlite3
