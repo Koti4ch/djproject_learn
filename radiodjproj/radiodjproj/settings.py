@@ -116,6 +116,10 @@ USE_L10N = True
 USE_TZ = True
 
 
+# send mails config
+# Now it send mail to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 

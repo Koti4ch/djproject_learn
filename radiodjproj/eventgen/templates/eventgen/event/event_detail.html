@@ -8,4 +8,6 @@
 <h2>{{ event.title }}</h2>
     <p class="date">Published: {{ event.created }} by {{ event.create_by }}</p>
     {{ event.eventtext|linebreaks }}
+
+    <p><a href="{% url 'eventgen:event_share' event.id %}">Share this post</a></p>
 {% endblock %}

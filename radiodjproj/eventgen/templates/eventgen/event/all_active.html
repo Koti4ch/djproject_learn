@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-    {% for event in activeevents %}
+    {% for event in events %}
         <h2>
             <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
         </h2>
@@ -12,5 +12,7 @@
 
         {{ event.eventtext|truncatewords:15|linebreaks }}
     {% endfor %}
-    {% include 'eventgen/pagination.html' with page=activeevents %}
+    {% if pagi %}
+        {% include 'eventgen/pagination.html' with page=events %}
+    {% endif %}
 {% endblock %}
