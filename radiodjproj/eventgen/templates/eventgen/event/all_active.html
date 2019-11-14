@@ -12,7 +12,7 @@
 
         {{ event.eventtext|truncatewords:15|linebreaks }}
     {% endfor %}
-    {% if pagi %}
-        {% include 'eventgen/pagination.html' with page=events %}
+    {% if is_paginated %}
+        {% include 'eventgen/pagination.html' with page=event %}
     {% endif %}
 {% endblock %}

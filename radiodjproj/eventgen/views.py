@@ -3,8 +3,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from django.core.mail import send_mail
 
-from eventgen.models import Event
-from eventgen.forms import EmailEventForm
+from eventgen.models import Event, Comment
+from eventgen.forms import EmailEventForm, CommentForm
 # Create your views here.
 
 def event_share_by_post(request, event_id):
@@ -55,4 +55,20 @@ class EventsListView(ListView):
 def event_detail(request, year, month, day, event):
     current_event = get_object_or_404(Event, slug_field=event, status='active', activated__year=year,
                                       activated__month=month, activated__day=day)
-    return render(request, 'eventgen/event/event_detail.html', {'event': current_event})
+    comments = current_event.comments.filter(active=True)
+    new_comment = None
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.event = current_event
+            new_comment.save()
+        else:
+            comment_form = CommentForm()
+    else:
+        comment_form = CommentForm()
+    return render(request, 'eventgen/event/event_detail.html', {'event': current_event,
+                                                                'comments': comments,
+                                                                'new_comment': new_comment,
+                                                                'comment_form': comment_form,
+                                                                })

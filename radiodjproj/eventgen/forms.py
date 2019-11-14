@@ -1,4 +1,5 @@
 from django import forms
+from eventgen.models import Comment
 
 
 class EmailEventForm(forms.Form):
@@ -6,3 +7,8 @@ class EmailEventForm(forms.Form):
     email = forms.EmailField()
     to = forms.EmailField()
     comments = forms.CharField(required=False, widget=forms.Textarea)
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'text')

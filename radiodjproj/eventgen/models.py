@@ -2,13 +2,12 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
-# Create your models here.
 
+# Create your models here.
 
 class ActivatedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status='active')
-
 
 class Event(models.Model):
     STATUS_CHOICES = (
@@ -37,3 +36,19 @@ class Event(models.Model):
 
     objects = models.Manager()
     actived = ActivatedManager()
+
+class Comment(models.Model):
+    # TODO: next add a hidden info.
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80, default='Anonymous user')
+    email = models.EmailField()
+    text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('created',)
+
+    def __str__(self):
+        return f'Comment by {self.name} on {self.event}'
