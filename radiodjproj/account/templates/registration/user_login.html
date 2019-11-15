@@ -1,0 +1,19 @@
+{% extends '_base_account_tmpl.html' %}
+
+{% block title %}Log-In{% endblock %}
+
+
+{% block content %}
+    <h2>Log-In</h2>
+    {% if form.errors %}
+        <p>Username and password didn't match. Please try again.</p>
+    {% else %}
+        <p>Plaese use the following form to log-in:</p>
+    {% endif %}
+    <form action="{% url 'account:user_login' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <p><input type="submit" value="Log in"></p>
+    </form>
+{% endblock %}

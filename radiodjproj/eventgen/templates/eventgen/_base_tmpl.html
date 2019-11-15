@@ -1,3 +1,4 @@
+{% load eventgen_tags %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -15,10 +16,18 @@
             {% block content %}
             {% endblock %}
         </div>
-{#        <div class="sidebar">#}
-{#            <h2>Events</h2>#}
-{#            <p>111111111</p>#}
-{#        </div>#}
+        <div class="sidebar">
+            <h2>Total events:<span>{% total_events %}</span></h2>
+            <h3>Most commented:</h3>
+            {% get_most_commented as most_commented %}
+            <ul>
+                {% for event in most_commented %}
+                    <li>
+                        <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </main>
 </body>
 </html>

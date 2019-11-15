@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # modules
+    'taggit',
+    # standart
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # MY APPs
     'eventgen.apps.EventgenConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +119,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+# redirects
+LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_URL = 'account:user_login'
+LOGOUT_URL = 'account:user_logout'
 
 # send mails config
 # Now it send mail to console

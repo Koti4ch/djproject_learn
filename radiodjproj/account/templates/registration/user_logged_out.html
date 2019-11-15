@@ -1,0 +1,10 @@
+{% extends '_base_account_tmpl.html' %}
+
+{% block title %}
+Logged-out
+{% endblock %}
+
+{% block content %}
+    <h2>Logged-out</h2>
+    <p>You have been successfully logged-out. You can <a href="{% url 'account:user_login' %}">log-in again</a>.</p>
+{% endblock %}
