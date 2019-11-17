@@ -1,6 +1,7 @@
 /djproject/
 /djrestvenv/
 /env_radiodjproj/
+/env-djproj/
 /__pycache__/
 __pycache__
 /.idea/
