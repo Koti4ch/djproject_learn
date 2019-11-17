@@ -1,0 +1,14 @@
+{% extends '_base_account_tmpl.html' %}
+
+{% block title %}
+Add new user
+{% endblock %}
+
+{% block content %}
+<h2>Create an account:</h2>
+    <form action="." method="POST">
+    {% csrf_token %}
+    {{ registration_form.as_p }}
+        <input type="submit" value="Create account">
+    </form>
+{% endblock %}
