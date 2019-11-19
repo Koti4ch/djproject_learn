@@ -25,20 +25,25 @@ SECRET_KEY = 's@z_0h)xaf2t^rmr8blx(w5(53sju4464y@esry(#@en)z)3!j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'radiotest.py']
 
 # BAckends authentification     custom
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.google.GoogleOAuth2',  # Google auth
 ]
 
+# Google secret auth
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '474974261108-s085ne5uej1suq9ua0o7s21bspn984u4.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'PmYigcw8DIZZ50smUGJjWeU1'
 
 # Application definition
 
 INSTALLED_APPS = [
     # modules
     'taggit',
+    'social_django',
     # standart
     'django.contrib.admin',
     'django.contrib.auth',
