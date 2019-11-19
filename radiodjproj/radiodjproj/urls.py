@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from radiodjproj import start
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', start.startpage, name='start_page'),
     path('event/', include('eventgen.urls')),
     path('account/', include('account.urls')),
     path('social-auth/', include('social_django.urls')),

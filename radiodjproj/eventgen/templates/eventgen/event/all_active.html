@@ -4,15 +4,31 @@
 {% endblock %}
 
 {% block content %}
-    {% for event in events %}
-        <h2>
-            <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
-        </h2>
-        <p class="date">Created: {{ event.activated|date:'j E Y, H:i' }} by {{ event.create_by }}</p>
+{#    {% for event in events %}#}
+{#        <h2>#}
+{#            <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>#}
+{#        </h2>#}
+{#        <p class="date">Created: {{ event.activated|date:'j E Y, H:i' }} by {{ event.create_by }}</p>#}
+{##}
+{#        {{ event.eventtext|truncatewords:15|linebreaks }}#}
+{#    {% endfor %}#}
+{#    {% if is_paginated %}#}
+{#        {% include 'eventgen/pagination.html' with page=event %}#}
+{#    {% endif %}#}
 
-        {{ event.eventtext|truncatewords:15|linebreaks }}
+    {% for event in events %}
+    <div class="col-6 col-12-medium">
+        <section class="box feature">
+            <a href="#" class="image featured"><img src='' alt="PATH TO EVENT IMG" /></a>
+            <div class="inner">
+                <header>
+                    <h2>{{ event.title }}</h2>
+                    <p></p>
+                </header>
+                <p>{{ event.eventtext | truncatechars:50 }}</p>
+            </div>
+        </section>
+    </div>
     {% endfor %}
-    {% if is_paginated %}
-        {% include 'eventgen/pagination.html' with page=event %}
-    {% endif %}
+
 {% endblock %}
