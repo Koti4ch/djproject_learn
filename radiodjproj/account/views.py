@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from account.forms import LoginForm, RegistrationUserForm
 
@@ -21,6 +22,11 @@ def registration_user(request):
 
 @login_required
 def dashboard(request):
+    messages.error(request, 'Test error message!')
+    messages.info(request, 'Test info message!')
+    messages.warning(request, 'Test warning message!')
+    messages.success(request, 'Test success message!')
+    messages.debug(request, 'Test debug message!')
     return render(request, 'account/dashboard.html', {'section': 'dashboard'})
 
 def user_login(request):
@@ -35,6 +41,7 @@ def user_login(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
+                messages.error(request, 'Authenticate successfully!')
                 return HttpResponse('Authenticate successfully')
             else:
                 return HttpResponse('Disable account!')

@@ -7,6 +7,20 @@
 </head>
 <body>
 <main class="container">
+
+    {% if messages %}
+    <div class="messages-view">
+        <ul class="messages">
+            {% for msg in messages %}
+                <li {% if msg.tags %}class="msg-{{ msg.tags }}"{% endif %}>
+                    {{ msg.tags }}
+                    {{ msg|safe }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
     {% if request.user.is_authenticated %}
         Hello, {{ request.user.username }}
         <a href="{% url 'account:user_logout' %}">Logout</a>
