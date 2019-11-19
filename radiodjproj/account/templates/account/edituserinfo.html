@@ -1,0 +1,15 @@
+{% extends '_base_account_tmpl.html' %}
+
+{% block title %}
+Edit {{ user.username }} info
+{% endblock %}
+
+{% block content %}
+<h2>Edit {{ user.username }} account:</h2>
+    <form action="." method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_edit_form.as_p }}
+        {{ profile_edit_form.as_p }}
+        <p><input type="submit" value="Save changes"></p>
+    </form>
+{% endblock %}
