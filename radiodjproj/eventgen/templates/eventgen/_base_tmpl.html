@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE HTML>
 <!-- -->
-<html>
+<html lang="en">
 	<head>
 		<title>{% block title %}{% endblock %}</title>
 		<meta charset="utf-8" />
@@ -44,13 +44,45 @@
 										</ul>
 									</li>
                                     {% else %}
-                                        <li><a href="{% url 'account:user_login' %}">Log-In</a></li>
+                                        <li data-toggle="modal" data-target="#exampleModal"><span>Log-in</span></li>
+                                        <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                      <h2 class="modal-title" id="exampleModalLabel">Авторизация!</h2>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                            <form action="{% url 'account:user_login' %}" method="POST">
+                                                                {% csrf_token %}
+                                                                <h4>Имя</h4>
+                                                                <input type="text" name="username">
+                                                                <h4>Пароль</h4>
+                                                                <input type="password" name="password">
+                                                                <input type="hidden" name="next" value="{{ next }}">
+                                                                <input class="btn-outline-secondary" type="submit" value="Log in">
+                                                            </form>
+                                                            <a href="{% url "social:begin" "google-oauth2" %}">LogIn with Google</a>
+                                                            <p>Зарегистрироваться</p>
+
+
+
+                                                  </div>
+            {#                                      <div class="modal-footer">#}
+            {#                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>#}
+            {#                                        <button type="button" class="btn btn-primary">Save changes</button>#}
+            {#                                      </div>#}
+                                                </div>
+                                              </div>
+                                            </div>
                                     {% endif %}
 {#									<li><a href="#">Left Sidebar</a></li>#}
 {#									<li><a href="#">Right Sidebar</a></li>#}
 {#									<li><a href="#">No Sidebar</a></li>#}
 								</ul>
 							</nav>
+
+
 					</header>
 				</div>
 
@@ -166,19 +198,23 @@
 						</div>
 					</footer>
                 </div>
-    </body>
-
-
-
-
+        <script src="{% static 'account/js/jquery.min.js' %}"></script>
+{#    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>#}
+    <!-- Bootstrap js -->
+        <script type="text/javascript" src="{% static 'account/js/bootstrapjs/bootstrap.js' %}"></script>
+        <script type="text/javascript" src="{% static 'account/js/bootstrapjs/bootstrap.bundle.js' %}"></script>
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>#}
+{#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>#}
 
 
     <!-- Scripts -->
-            <script src="{% static 'account/js/jquery.min.js' %}"></script>
+
+
             <script src="{% static 'account/js/jquery.dropotron.min.js' %}"></script>
             <script src="{% static 'account/js/browser.min.js' %}"></script>
             <script src="{% static 'account/js/breakpoints.min.js' %}"></script>
             <script src="{% static 'account/js/util.js' %}"></script>
             <script src="{% static 'account/js/main.js' %}"></script>
+
 	</body>
 </html>
