@@ -1649,7 +1649,7 @@ span .current {
 /* Button */
 
 	input[type="button"],
-	input[type="submit"],
+	/* input[type="submit"], */
 	input[type="reset"],
 	button,
 	.button {
@@ -1673,7 +1673,7 @@ span .current {
 	}
 
 		input[type="button"].icon:before,
-		input[type="submit"].icon:before,
+		/* input[type="submit"].icon:before, */
 		input[type="reset"].icon:before,
 		button.icon:before,
 		.button.icon:before {
@@ -1683,7 +1683,7 @@ span .current {
 		}
 
 		input[type="button"]:hover,
-		input[type="submit"]:hover,
+		/* input[type="submit"]:hover, */
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
@@ -1699,7 +1699,7 @@ span .current {
 		}
 
 		input[type="button"].alt,
-		input[type="submit"].alt,
+		/* input[type="submit"].alt, */
 		input[type="reset"].alt,
 		button.alt,
 		.button.alt {
@@ -1718,7 +1718,7 @@ span .current {
 			}
 
 			input[type="button"].alt:active,
-			input[type="submit"].alt:active,
+			/* input[type="submit"].alt:active, */
 			input[type="reset"].alt:active,
 			button.alt:active,
 			.button.alt:active {
@@ -1727,7 +1727,7 @@ span .current {
 			}
 
 		input[type="button"].large,
-		input[type="submit"].large,
+		/* input[type="submit"].large, */
 		input[type="reset"].large,
 		button.large,
 		.button.large {
@@ -2251,7 +2251,7 @@ span .current {
 		/* Button */
 
 			input[type="button"],
-			input[type="submit"],
+			/* input[type="submit"], */
 			input[type="reset"],
 			button,
 			.button {
@@ -2262,7 +2262,7 @@ span .current {
 			}
 
 				input[type="button"].icon,
-				input[type="submit"].icon,
+				/* input[type="submit"].icon, */
 				input[type="reset"].icon,
 				button.icon,
 				.button.icon {
@@ -2270,7 +2270,7 @@ span .current {
 				}
 
 					input[type="button"].icon:before,
-					input[type="submit"].icon:before,
+					/* input[type="submit"].icon:before, */
 					input[type="reset"].icon:before,
 					button.icon:before,
 					.button.icon:before {
@@ -2569,7 +2569,7 @@ span .current {
 		/* Button */
 
 			input[type="button"],
-			input[type="submit"],
+			/* input[type="submit"], */
 			input[type="reset"],
 			button,
 			.button {
@@ -2580,7 +2580,7 @@ span .current {
 			}
 
 				input[type="button"].icon,
-				input[type="submit"].icon,
+				/* input[type="submit"].icon, */
 				input[type="reset"].icon,
 				button.icon,
 				.button.icon {
@@ -2588,7 +2588,7 @@ span .current {
 				}
 
 					input[type="button"].icon:before,
-					input[type="submit"].icon:before,
+					/* input[type="submit"].icon:before, */
 					input[type="reset"].icon:before,
 					button.icon:before,
 					.button.icon:before {
