@@ -10,6 +10,6 @@ Edit {{ user.username }} info
         {% csrf_token %}
         {{ user_edit_form.as_p }}
         {{ profile_edit_form.as_p }}
-        <p><input type="submit" value="Save changes"></p>
+        <p><input class="btn btn-outline-secondary" type="submit" value="Save changes"></p>
     </form>
 {% endblock %}

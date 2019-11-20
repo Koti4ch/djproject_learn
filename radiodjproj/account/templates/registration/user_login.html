@@ -14,7 +14,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="next" value="{{ next }}">
-        <p><input type="submit" value="Log in"></p>
+        <p><input class="btn btn-outline-secondary" type="submit" value="Log in"></p>
     </form>
     
     <ul>

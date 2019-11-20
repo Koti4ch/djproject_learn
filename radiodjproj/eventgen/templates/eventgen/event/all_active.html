@@ -22,7 +22,7 @@
             <div class="inner">
                 <header>
                     <h3>{{ event.title }}</h3>
-                    <p></p>
+                    <p>{{ event.create_by }}</p>
                 </header>
                 <p>{{ event.eventtext | truncatechars:300 }}</p>
             </div>

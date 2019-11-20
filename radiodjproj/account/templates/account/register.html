@@ -9,6 +9,6 @@ Add new user
     <form action="." method="POST">
     {% csrf_token %}
     {{ registration_form.as_p }}
-        <input type="submit" value="Create account">
+        <input class="btn btn-outline-secondary" type="submit" value="Create account">
     </form>
 {% endblock %}
