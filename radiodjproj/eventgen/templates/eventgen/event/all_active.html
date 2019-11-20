@@ -1,7 +1,6 @@
 {% extends 'eventgen/_base_tmpl.html' %}
 
-{% block title %}ourEvents
-{% endblock %}
+{% block title %}ourEvents{% endblock %}
 
 {% block content %}
 {#    {% for event in events %}#}
@@ -17,15 +16,15 @@
 {#    {% endif %}#}
 
     {% for event in events %}
-    <div class="col-6 col-12-medium">
+    <div class="col-12 col-12-medium">
         <section class="box feature">
             <a href="#" class="image featured"><img src='' alt="PATH TO EVENT IMG" /></a>
             <div class="inner">
                 <header>
-                    <h2>{{ event.title }}</h2>
+                    <h3>{{ event.title }}</h3>
                     <p></p>
                 </header>
-                <p>{{ event.eventtext | truncatechars:50 }}</p>
+                <p>{{ event.eventtext | truncatechars:300 }}</p>
             </div>
         </section>
     </div>

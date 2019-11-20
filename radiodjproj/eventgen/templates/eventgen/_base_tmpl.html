@@ -6,26 +6,25 @@
 		<title>{% block title %}{% endblock %}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static 'account/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'account/css/bootstrap.css' %}" />
+        <link rel="stylesheet" href="{% static 'account/css/main.css' %}" />
 	</head>
 
     <body class="is-preload homepage">
+
 		<div id="page-wrapper">
 
 			<!-- Header -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
-
 						<!-- Logo -->
-							<div id="logo1">
-								<h1><a href="index.html">Test</a></h1>
-								<span>by HTML5 UP</span>
+							<div id="logo">
+                               <h3><a href="{% url 'start_page' %}"><span><img src="/static/account/imgs/logo-bt.png" alt=""></span></a></h3>
 							</div>
-
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="{% url 'start_page' %}">Welcome</a></li>
+									<li class="current"><a href="{% url 'start_page' %}">События</a></li>
 									{% if request.user.is_authenticated %}
                                     <li>
 										<a href="#">User Profile</a>
@@ -45,14 +44,13 @@
 										</ul>
 									</li>
                                     {% else %}
-                                        <li class="current"><a href="{% url 'account:user_login' %}">Log-In</a></li>
+                                        <li><a href="{% url 'account:user_login' %}">Log-In</a></li>
                                     {% endif %}
 {#									<li><a href="#">Left Sidebar</a></li>#}
 {#									<li><a href="#">Right Sidebar</a></li>#}
 {#									<li><a href="#">No Sidebar</a></li>#}
 								</ul>
 							</nav>
-
 					</header>
 				</div>
 
@@ -74,7 +72,7 @@
 {#					</div>#}
 {#				</div>#}
         </div>
-
+    <div class="">
 			<!-- Features -->
 				<div id="features-wrapper">
 					<div class="container">
@@ -96,19 +94,19 @@
 {#							</div>#}
 					</div>
 				</div>
-
-
-    <div class="container">
-
     </div>
 
+            <!-- PAGINATION -->
+    {% if is_paginated %}
+        {% include 'eventgen/pagination.html' %}
+    {% endif %}
 
 			<!-- Footer -->
+                <hr />
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
 						<div class="row">
 							<div class="col-3 col-6-medium col-12-small">
-
 								<!-- Links -->
 									<section class="widget links">
 										<h3>Random Stuff</h3>
@@ -122,41 +120,27 @@
 									</section>
 
 							</div>
-							<div class="col-3 col-6-medium col-12-small">
+
+							<div class="col-6 col-6-medium col-12-small">
 
 								<!-- Links -->
 									<section class="widget links">
-										<h3>Random Stuff</h3>
-										<ul class="style2">
-											<li><a href="#">Etiam feugiat condimentum</a></li>
-											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-											<li><a href="#">Sed porttitor cras in erat nec</a></li>
-											<li><a href="#">Felis varius pellentesque potenti</a></li>
-											<li><a href="#">Nullam scelerisque blandit leo</a></li>
-										</ul>
+										<h3>Мы на карте</h3>
+{#										<ul class="style2">#}
+{#											<li><a href="#">Etiam feugiat condimentum</a></li>#}
+{#											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>#}
+{#											<li><a href="#">Sed porttitor cras in erat nec</a></li>#}
+{#											<li><a href="#">Felis varius pellentesque potenti</a></li>#}
+{#											<li><a href="#">Nullam scelerisque blandit leo</a></li>#}
+{#										</ul>#}
 									</section>
 
 							</div>
-							<div class="col-3 col-6-medium col-12-small">
-
-								<!-- Links -->
-									<section class="widget links">
-										<h3>Random Stuff</h3>
-										<ul class="style2">
-											<li><a href="#">Etiam feugiat condimentum</a></li>
-											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-											<li><a href="#">Sed porttitor cras in erat nec</a></li>
-											<li><a href="#">Felis varius pellentesque potenti</a></li>
-											<li><a href="#">Nullam scelerisque blandit leo</a></li>
-										</ul>
-									</section>
-
-							</div>
-							<div class="col-3 col-6-medium col-12-small">
+							<div class="col-3 col-3-medium col-12-small">
 
 								<!-- Contact -->
 									<section class="widget contact last">
-										<h3>Contact Us</h3>
+										<h3>Связаться с нами</h3>
 										<ul>
 											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -164,9 +148,9 @@
 											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
 											<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
 										</ul>
-										<p>1234 Fictional Road<br />
-										Nashville, TN 00000<br />
-										(800) 555-0000</p>
+										<p>ул. Красная, 4<br />
+										г. Минск, 220114<br />
+										</p>
 									</section>
 
 							</div>
@@ -175,7 +159,7 @@
 							<div class="col-12">
 								<div id="copyright">
 									<ul class="menu">
-										<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										<li>&copy; Radio 2019. All rights reserved</li><li>Design: <a href="">ДКТ</a></li>
 									</ul>
 								</div>
 							</div>

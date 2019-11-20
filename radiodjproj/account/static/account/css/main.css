@@ -192,12 +192,38 @@ input, select, textarea {
 		margin-bottom: 2em;
 	}
 
+
+/* PAGINATION */
+
+.pagination {
+	/* width: 100%; */
+}
+
+.step-links {
+	display: flex;
+    justify-content: center;
+}
+
+.step-links span {
+	margin: 0 0.2em 0 0.2em;
+}
+
+.step-links a {
+	margin: 0 0.2em 0 0.2em;
+}
+
+span .current {
+	border: 1px #555 solid;
+}
+
+
 /* Container */
 
 	.container {
 		margin: 0 auto;
 		max-width: 100%;
-		width: 1400px;
+		min-width: 320px;
+		width: 1200px;
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -1912,7 +1938,7 @@ input, select, textarea {
 	}
 
 	#features-wrapper {
-		padding: 3em 0 3em 0;
+		padding: 3em 0 1.5em 0;
 	}
 
 	#main-wrapper {
@@ -1937,14 +1963,14 @@ input, select, textarea {
 		display: inline-block;
 	}
 
-		#logo h1 {
-			background: #ff4486;
+		#logo h3 {
+			/* background: #5666f1a8; */
 			color: #fff;
 			border-radius: 6px;
 			font-family: 'Oleo Script', serif;
 			font-weight: 400;
 			padding: 0.25em 0.2em 0.25em 0.2em;
-			font-size: 3.25em;
+			font-size: 1.25em;
 			letter-spacing: 0.05em;
 			display: inline-block;
 			vertical-align: middle;
@@ -1957,6 +1983,11 @@ input, select, textarea {
 			font-size: 0.9em;
 			vertical-align: middle;
 			margin: 0 0 0 1.25em;
+		}
+
+		#logo img {
+			/* margin: auto; */
+			height: 3.5em;
 		}
 
 /* Nav */
@@ -2637,7 +2668,7 @@ input, select, textarea {
 			}
 
 			#logo span {
-				line-height: 3em;
+				line-height: 2.5em;
 			}
 
 		/* Banner */

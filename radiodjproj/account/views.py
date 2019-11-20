@@ -32,6 +32,7 @@ def edit_user_info(request):
         if user_edit_form.is_valid() and profile_edit_form.is_valid():
             user_edit_form.save()
             profile_edit_form.save()
+            messages.success(request, f'User {request.user.username} was apdated successfully!')
     else:
         user_edit_form = UserEditForm(instance=request.user)
         profile_edit_form = UserProfileEditForm(instance=request.user.userprofile)
@@ -61,7 +62,7 @@ def user_login(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                messages.error(request, 'Authenticate successfully!')
+                messages.success(request, 'Authenticate successfully!')
                 return HttpResponse('Authenticate successfully')
             else:
                 return HttpResponse('Disable account!')
