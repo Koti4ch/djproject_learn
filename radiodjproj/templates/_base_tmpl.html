@@ -64,9 +64,6 @@
                                                             </form>
                                                             <a href="{% url "social:begin" "google-oauth2" %}">LogIn with Google </a>|
                                                             <a href="{% url 'account:register' %}">Регистрация</a>
-
-
-
                                                   </div>
             {#                                      <div class="modal-footer">#}
             {#                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>#}
@@ -124,13 +121,14 @@
 {#									</section>#}
 
 {#							</div>#}
+                        </div>
 					</div>
 				</div>
     </div>
 
             <!-- PAGINATION -->
     {% if is_paginated %}
-        {% include 'eventgen/pagination.html' %}
+        {% include 'pagination.html' %}
     {% endif %}
 
 			<!-- Footer -->
@@ -215,6 +213,5 @@
             <script src="{% static 'account/js/breakpoints.min.js' %}"></script>
             <script src="{% static 'account/js/util.js' %}"></script>
             <script src="{% static 'account/js/main.js' %}"></script>
-
-	</body>
+    </body>
 </html>
