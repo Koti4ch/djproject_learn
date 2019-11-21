@@ -16,13 +16,13 @@
 {#    {% endif %}#}
 
     {% for event in events %}
-    <div class="col-12 col-12-medium">
+    <div class="col-12 col-12-medium mb-4">
         <section class="box feature">
             <a href="#" class="image featured"><img src='' alt="PATH TO EVENT IMG" /></a>
             <div class="inner">
                 <header>
                     <h3>{{ event.title }}</h3>
-                    <p>{{ event.create_by }}</p>
+                    <p>{{ event.create_by }} at {{ event.created|date:"d E Y  - H:i" }}</p>
                 </header>
                 <p>{{ event.eventtext | truncatechars:300 }}</p>
             </div>

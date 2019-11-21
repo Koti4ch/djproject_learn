@@ -5,6 +5,15 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+# TODO: create bg for head of events
+# class BGForEvent(models.Model):
+#     bg_name = models.CharField(max_length=100)
+#     bg_img = models.ImageField(upload_to='colors/', default='df.png')
+#
+#     def __str__(self):
+#         return f'Background {self.bg_name}'
+
+
 class ActivatedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status='active')
@@ -24,6 +33,8 @@ class Event(models.Model):
     activated = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
+
+    # bg_color = models.ForeignKey(BGForEvent, on_delete=models.CASCADE, null=True)
 
     class Meta:
         ordering = ('-activated',)
@@ -52,3 +63,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.name} on {self.event}'
+

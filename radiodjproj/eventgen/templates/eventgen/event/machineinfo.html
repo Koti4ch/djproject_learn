@@ -1,0 +1,14 @@
+{% extends '_base_tmpl.html' %}
+{% load eventgen_tags %}
+
+{% block title %}
+Machine INFO
+{% endblock %}
+
+{% block content %}
+    {% localsystem_info as machineinfo %}
+    {% for key, info in machineinfo.items %}
+        <p>{{ key }} : {{info}}</p>
+    {% endfor %}
+    <p>LOGIN : {{ user }}</p>
+{% endblock %}

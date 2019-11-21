@@ -192,6 +192,11 @@ input, select, textarea {
 		margin-bottom: 2em;
 	}
 
+/* Map side */
+.map-side {
+	border: 2px solid silver;
+}
+
 
 /* PAGINATION */
 
@@ -1816,7 +1821,7 @@ span .current {
 		}
 
 			.box.feature .inner {
-				padding: 4em 2em 3em 2em;
+				padding: 1em 2em 3em 2em;
 			}
 
 			.box.feature h2 {
@@ -1965,12 +1970,12 @@ span .current {
 
 		#logo h3 {
 			/* background: #5666f1a8; */
-			color: #fff;
+			color: rgba(11, 47, 112, 0.719);
 			border-radius: 6px;
 			font-family: 'Oleo Script', serif;
 			font-weight: 400;
 			padding: 0.25em 0.2em 0.25em 0.2em;
-			font-size: 1.25em;
+			font-size: 2.25em;
 			letter-spacing: 0.05em;
 			display: inline-block;
 			vertical-align: middle;
@@ -1986,7 +1991,7 @@ span .current {
 		}
 
 		#logo img {
-			/* margin: auto; */
+			margin: auto;
 			height: 3.5em;
 		}
 
@@ -2596,6 +2601,8 @@ span .current {
 						top: 0.05em;
 					}
 
+		
+
 		/* Box */
 
 			.box {
@@ -2609,7 +2616,7 @@ span .current {
 				}
 
 					.box.feature .inner {
-						padding: 30px 15px 30px 15px;
+						padding: 10px 15px 30px 15px;
 					}
 
 					.box.feature p {
@@ -2715,7 +2722,7 @@ span .current {
 			}
 
 			#copyright {
-				text-align: left;
+				text-align: center;
 			}
 
 	}

@@ -7,6 +7,9 @@ from eventgen.models import Event, Comment
 from eventgen.forms import EmailEventForm, CommentForm
 # Create your views here.
 
+def infopage(request):
+    return render(request, 'eventgen/event/machineinfo.html')
+
 def event_share_by_post(request, event_id):
     # Get event by index
     event = get_object_or_404(Event, id=event_id, status='active')

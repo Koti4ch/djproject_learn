@@ -1,4 +1,5 @@
 {% load static %}
+{% load eventgen_tags %}
 <!DOCTYPE HTML>
 <!-- -->
 <html lang="en">
@@ -19,12 +20,16 @@
 					<header id="header" class="container">
 						<!-- Logo -->
 							<div id="logo">
-                               <h3><a href="{% url 'start_page' %}"><span><img src="/static/account/imgs/logo-bt.png" alt=""></span></a></h3>
+                                {% localsystem_info as computername %}
+                               <h3><a href="{% url 'start_page' %}">{{ computername.computername }}</a></h3>
+                                <span>БЕЛТЕЛЕРАДИОКОМПАНИЯ</span>
+{#                                <img src="/static/account/imgs/logo-bt.png" alt="">#}
 							</div>
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
 									<li><a href="{% url 'eventgen:events_list' %}">События</a></li>
+									<li><a href="{% url 'eventgen:machineinfo' %}">Инфо</a></li>
 									{% if request.user.is_authenticated %}
                                     <li>
 										<a href="#">User Profile</a>
@@ -40,11 +45,11 @@
 {#													<li><a href="#">Etiam dolore nisl</a></li>#}
 {#												</ul>#}
 {#											</li>#}
+											<li><a href="{% url 'account:edituserinfo' %}">Редактировать</a></li>
 											<li><a href="{% url 'account:user_logout' %}">Logout</a></li>
 										</ul>
 									</li>
                                     {% else %}
-                                        <li><a href="{% url 'account:register' %}">Регистрация</a></li>
                                         <li data-toggle="modal" data-target="#exampleModal"><span>Log-in</span></li>
                                         <!-- Modal -->
                                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -145,40 +150,21 @@
                 <hr />
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
-						<div class="row">
-							<div class="col-3 col-6-medium col-12-small">
+						<div class="d-flex justify-content-around flex-wrap">
+							<div class="col-6-medium col-12-small">
 								<!-- Links -->
 									<section class="widget links">
 										<h3>Random Stuff</h3>
 										<ul class="style2">
 											<li><a href="#">Etiam feugiat condimentum</a></li>
 											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-											<li><a href="#">Sed porttitor cras in erat nec</a></li>
-											<li><a href="#">Felis varius pellentesque potenti</a></li>
-											<li><a href="#">Nullam scelerisque blandit leo</a></li>
 										</ul>
 									</section>
 
 							</div>
 
-							<div class="col-6 col-12-medium col-12-small">
 
-								<!-- Links -->
-									<section class="widget links">
-										<h3>Мы на карте</h3>
-                                        <div style="overflow:hidden;width: 100%;position: relative;"><iframe width="490" height="290" src="https://maps.google.com/maps?width=490&amp;height=290&amp;hl=en&amp;q=%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F%204+(%D0%94%D0%BE%D0%BC%20%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE)&amp;ie=UTF8&amp;t=p&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/">Embedgooglemaps.com/</a> & <a href="https://lasvegastop10restaurants.embedgooglemaps.com/">lasvegastop10restaurants</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
-
-{#										<ul class="style2">#}
-{#											<li><a href="#">Etiam feugiat condimentum</a></li>#}
-{#											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>#}
-{#											<li><a href="#">Sed porttitor cras in erat nec</a></li>#}
-{#											<li><a href="#">Felis varius pellentesque potenti</a></li>#}
-{#											<li><a href="#">Nullam scelerisque blandit leo</a></li>#}
-{#										</ul>#}
-									</section>
-
-							</div>
-							<div class="col-3 col-3-medium col-12-small">
+							<div class="col-6-medium col-12-small">
 
 								<!-- Contact -->
 									<section class="widget contact last">
@@ -197,7 +183,29 @@
 
 							</div>
 						</div>
-						<div class="row">
+                        <div class="row">
+                            <div class="col-12 col-12-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+{#										<h3>Мы на карте</h3>#}
+                                        <div class="map-side">
+                                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1e034f11b6c443161895218cee43b3f33e4d96f27dac6bc4d14b4e2dcf0eb186&amp;width=100%25&amp;height=295&amp;lang=ru_RU&amp;scroll=true"></script>
+{#                                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1e034f11b6c443161895218cee43b3f33e4d96f27dac6bc4d14b4e2dcf0eb186&amp;source=constructor" width="100%" height="290" frameborder="0"></iframe>#}
+{#                                            <div style="overflow:hidden;width: 100%;position: relative;"><iframe width="490" height="290" src="https://maps.google.com/maps?width=490&amp;height=290&amp;hl=en&amp;q=%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F%204+(%D0%94%D0%BE%D0%BC%20%D0%A0%D0%B0%D0%B4%D0%B8%D0%BE)&amp;ie=UTF8&amp;t=p&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/">Embedgooglemaps.com/</a> & <a href="https://lasvegastop10restaurants.embedgooglemaps.com/">lasvegastop10restaurants</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />#}
+                                        </div>
+{#										<ul class="style2">#}
+{#											<li><a href="#">Etiam feugiat condimentum</a></li>#}
+{#											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>#}
+{#											<li><a href="#">Sed porttitor cras in erat nec</a></li>#}
+{#											<li><a href="#">Felis varius pellentesque potenti</a></li>#}
+{#											<li><a href="#">Nullam scelerisque blandit leo</a></li>#}
+{#										</ul>#}
+									</section>
+
+							</div>
+                        </div>
+						<div class="d-flex">
 							<div class="col-12">
 								<div id="copyright">
 									<ul class="menu">
