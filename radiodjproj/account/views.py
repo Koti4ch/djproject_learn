@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -15,9 +15,10 @@ def registration_user(request):
         if registration_form.is_valid():
             new_user = registration_form.save(commit=False)
             new_user.set_password(registration_form.cleaned_data['password'])
-            UserProfile.objects.create(user=new_user)
+            #UserProfile.objects.create(user=new_user)
             new_user.save()
-            return render(request, 'account/register_done.html', {'new_user': new_user})
+            messages.success(request, f'Был успешно создан пользователь "{ new_user }".')
+            return reverse(request, 'account:edituserinfo')
     else:
         registration_form = RegistrationUserForm()
     return render(request, 'account/register.html', {'registration_form': registration_form})
